@@ -11,7 +11,7 @@ const TripLocation = ({ location, locationDescription }: TripLocationProps) => {
   return (
     <div className="p-5 lg:p-0 lg:mt-12 lg:pb-20">
       <h2 className="font-semibold text-primaryDarker mb-5 lg:text-xl">
-        Localização
+        Location
       </h2>
       <div className="relative h-[280px] w-full lg:hidden">
         <Image
@@ -44,7 +44,7 @@ const TripLocation = ({ location, locationDescription }: TripLocationProps) => {
         {locationDescription}
       </p>
       <Button variant="outlined" className="w-full mt-5">
-        Ver no Google Maps
+        See on google maps
       </Button>
     </div>
   );

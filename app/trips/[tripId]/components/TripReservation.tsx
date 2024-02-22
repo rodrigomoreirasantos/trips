@@ -57,26 +57,26 @@ const TripReservation = ({
     if (res?.error?.code === "TRIP_ALREADY_RESERVED") {
       setError("startDate", {
         type: "manual",
-        message: "Esta data já está reservada.",
+        message: "This date already schedule.",
       });
 
       return setError("endDate", {
         type: "manual",
-        message: "Esta data já está reservada.",
+        message: "This date already schedule.",
       });
     }
 
     if (res?.error?.code === "INVALID_START_DATE") {
       return setError("startDate", {
         type: "manual",
-        message: "Data inválida.",
+        message: "Invalid date.",
       });
     }
 
     if (res?.error?.code === "INVALID_END_DATE") {
       return setError("endDate", {
         type: "manual",
-        message: "Data inválida.",
+        message: "Invalid date.",
       });
     }
 
@@ -93,7 +93,7 @@ const TripReservation = ({
   return (
     <div className="flex flex-col px-5 lg:min-w-[380px] lg:p-5 lg:border-grayLighter lg:border lg:rounded-lg lg:shadow-md">
       <p className="text-xl hidden text-primaryDarker mb-4 lg:block">
-        <span className="font-semibold">R${pricePerDay}</span> por dia
+        <span className="font-semibold">${pricePerDay}</span> per day
       </p>
 
       <div className="flex gap-4">
@@ -102,7 +102,7 @@ const TripReservation = ({
           rules={{
             required: {
               value: true,
-              message: "Data inicial é obrigatória.",
+              message: "Start date is mandatory.",
             },
           }}
           control={control}
@@ -112,7 +112,7 @@ const TripReservation = ({
               errorMessage={errors?.startDate?.message}
               onChange={field.onChange}
               selected={field.value}
-              placeholderText="Data de Início"
+              placeholderText="Start Date"
               className="w-full"
               minDate={tripStartDate}
             />
@@ -124,7 +124,7 @@ const TripReservation = ({
           rules={{
             required: {
               value: true,
-              message: "Data final é obrigatória.",
+              message: "End date is mandatory",
             },
           }}
           control={control}
@@ -134,7 +134,7 @@ const TripReservation = ({
               errorMessage={errors?.endDate?.message}
               onChange={field.onChange}
               selected={field.value}
-              placeholderText="Data Final"
+              placeholderText="End Date"
               className="w-full"
               maxDate={tripEndDate}
               minDate={startDate ?? tripStartDate}
@@ -147,14 +147,14 @@ const TripReservation = ({
         {...register("guests", {
           required: {
             value: true,
-            message: "Número de hóspedes é obrigatório.",
+            message: "Number of guests is mandatory",
           },
           max: {
             value: maxGuests,
-            message: `Número de hóspedes não pode ser maior que ${maxGuests}.`,
+            message: `Number of guests cannot be greater than ${maxGuests}.`,
           },
         })}
-        placeholder={`Número de hóspedes (max: ${maxGuests})`}
+        placeholder={`Number of guests (max: ${maxGuests})`}
         className="mt-4"
         error={!!errors?.guests}
         errorMessage={errors?.guests?.message}
@@ -165,8 +165,8 @@ const TripReservation = ({
         <p className="font-medium text-sm text-primaryDarker">Total: </p>
         <p className="font-medium text-sm text-primaryDarker">
           {startDate && endDate
-            ? `R$${differenceInDays(endDate, startDate) * pricePerDay}` ?? 1
-            : "R$0"}
+            ? `$${differenceInDays(endDate, startDate) * pricePerDay}` ?? 1
+            : "$0"}
         </p>
       </div>
 
@@ -175,7 +175,7 @@ const TripReservation = ({
           onClick={() => handleSubmit(onSubmit)()}
           className="mt-3 w-full"
         >
-          Reservar agora
+          Book now
         </Button>
       </div>
     </div>
