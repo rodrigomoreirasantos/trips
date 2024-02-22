@@ -175,7 +175,7 @@ const TripReservation = ({
           onClick={() => handleSubmit(onSubmit)()}
           className="mt-3 w-full"
         >
-          Book now
+          Booking now
         </Button>
       </div>
     </div>
