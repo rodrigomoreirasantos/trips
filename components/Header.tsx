@@ -11,7 +11,7 @@ export const Header = () => {
 
   const { status, data } = useSession();
 
-  const handleLoginClick = () => signIn();
+  const handleLoginClick = () => signIn("google");
 
   const handleLogoutClick = () => {
     setMenuIsOpen(false);
