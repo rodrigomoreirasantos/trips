@@ -1,17 +1,15 @@
-import { db } from "../../../../_lib/prisma";
+import { db } from "@/app/_lib/prisma";
 import { NextResponse } from "next/server";
 
 export async function GET(
   request: Request,
   { params: { userId } }: { params: { userId: string } }
 ) {
-  const { searchParams } = new URL(request.url);
-
   if (!userId) {
     return {
       status: 400,
       body: {
-        message: "Missing userId",
+        message: "Missing user id",
       },
     };
   }
