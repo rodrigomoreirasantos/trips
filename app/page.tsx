@@ -7,11 +7,9 @@ import { Suspense } from "react";
 export default function Home() {
   return (
     <div>
-      <Suspense>
-        <TripSearch />
-        <QuickSearch />
-        <RecommendedTrips />
-      </Suspense>
+      <TripSearch />
+      <QuickSearch />
+      <RecommendedTrips />
     </div>
   );
 }
