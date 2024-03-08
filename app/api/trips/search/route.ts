@@ -1,4 +1,4 @@
-import { db } from "../../../_lib/prisma";
+import { db } from "@/app/_lib/prisma";
 import { NextResponse } from "next/server";
 
 const generateSearchQuery = (
@@ -40,6 +40,8 @@ const generateSearchQuery = (
       ],
     };
   }
+
+  console.log({ budget });
 
   if (budget !== "undefined" && budget !== "null") {
     searchQuery = {
